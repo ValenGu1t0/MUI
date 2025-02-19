@@ -7,6 +7,8 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 import App from './App.jsx'
+import './assets/index.css';
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
