@@ -10,7 +10,7 @@ function About() {
                 
                 <div className="flex flex-col gap-2">
                 <h4 className="font-semibold text-indigo-900 text-center">Why lorem it when you have ChatGPT?</h4>
-                <p className="text-justify">Our app brings you a world of flavors with just a few taps. Whether you are craving a quick snack or a gourmet meal, we connect you with the best local restaurants and home-cooked delights. Enjoy a seamless ordering experience and explore new tastes every day.</p>
+                <p className="text-center">Our app brings you a world of flavors with just a few taps. Whether you are craving a quick snack or a gourmet meal, we connect you with the best local restaurants and home-cooked delights. Enjoy a seamless ordering experience and explore new tastes every day.</p>
                 </div>
 
                 <div className="flex flex-col gap-2">

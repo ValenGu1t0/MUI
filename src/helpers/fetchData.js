@@ -1,7 +1,5 @@
 
 // Separo la lógica de fetchear la data
-// esto va en ItemList
-
 import data from '../data/data.json';
 
 const fetchData = () => {
