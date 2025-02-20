@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import FoodCard from "../FoodCard/FoodCard";
+import NavFilter from "../NavFilter/NavFilter";
 
 function ListaItems( {productos} ) {
 
@@ -13,26 +14,21 @@ function ListaItems( {productos} ) {
           <p className="text-xl font-bold">Total Results: 3</p>  {/* //aca va una variable de la funcion filtrar// */}
         </div>
 
-
-
-        {/* ACA LLAMARIA AL COMPONENTE barra de nav de filtrar */}
-        <div className="flex flex-row bg-slate-400 w-[60%] p-4">
-          <p className="text-center">ACA VA EL NAV DE ITEMS</p>  {/* //aca va una variable de la funcion filtrar// */}
-        </div>
-
-
-
+        {/* Este nav filter deberia influir en que se muestra */}
+        <NavFilter />
+        
+        
         {/* Este div es el container de todas las cards */}
         <div className="flex flex-col gap-8 w-full">
           { productos.map((prod) => 
           
           <FoodCard 
           key={prod.id}
-          titulo={prod.titulo}
-          descripcion={prod.descripcion}
-          precio={prod.precio}
+          name={prod.name}
+          description={prod.description}
+          price={prod.price}
           imagen={prod.imagen}
-          stock={prod.stock}
+          availability={prod.availability}
           rating={prod.rating}
           />) 
             

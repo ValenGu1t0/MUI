@@ -1,16 +1,9 @@
-// Forma lenta, pero permite importar de a muchas cosas
-// import { Button } from "@mui/material";
-
-// Forma rapida, pero solo permite seleccionar un Componente
-/* import Button from "@mui/material/Button" */
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 import Nav from './components/Nav/Nav'
 import Footer from './components/Footer/Footer'
 import MainListaItems from './components/MainListaItems/MainListaItems';
 import About from './components/About/About';
-
 
 function App() {
 

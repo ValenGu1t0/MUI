@@ -4,14 +4,14 @@ import { Card, CardContent, CardMedia, Typography, Box, Chip, IconButton } from 
 import { Star, StarBorder, Edit, Delete } from "@mui/icons-material";
 
 
-const FoodCard = ({ titulo, descripcion, precio, imagen, stock, rating }) => {
+const FoodCard = ({ name, description, price, imagen, availability, rating }) => {
 
         return (
         <Card sx={{ display: "flex", alignItems: "center", p: 2, borderRadius: 2, boxShadow: 3, width: "60%", margin:"auto"}}>
 
 
             {/* Imagen de la Card*/}
-            <CardMedia component="img" sx={{ width: 200, height: 150, borderRadius: 2 }} image={imagen} alt={titulo} />
+            <CardMedia component="img" sx={{ width: 200, height: 150, borderRadius: 2 }} image={imagen} alt={name} />
     
 
             {/* Contenido de la Card*/}
@@ -19,7 +19,7 @@ const FoodCard = ({ titulo, descripcion, precio, imagen, stock, rating }) => {
 
                 {/* Título e Iconos */}
                 <Box display="flex" justifyContent="space-between" alignItems="center">
-                    <Typography variant="h6" fontWeight="bold">{titulo}</Typography>
+                    <Typography variant="h6" fontWeight="bold">{name}</Typography>
                     <Box>
                     <IconButton size="small"><Edit fontSize="small" /></IconButton>
                     <IconButton size="small"><Delete fontSize="small" /></IconButton>
@@ -27,7 +27,7 @@ const FoodCard = ({ titulo, descripcion, precio, imagen, stock, rating }) => {
                 </Box>
         
                 {/* Descripción */}
-                <Typography variant="body2" color="textSecondary">{descripcion}</Typography>
+                <Typography variant="body2" color="textSecondary">{description}</Typography>
         
                 {/* Sección de Precio, Stock y Rating */}
                 <Box display="flex" justifyContent="space-between" alignItems="center" mt={5}>
@@ -35,15 +35,15 @@ const FoodCard = ({ titulo, descripcion, precio, imagen, stock, rating }) => {
 
                     {/* Precio */}
                     <Typography variant="subtitle1" fontWeight="bold">
-                    Price: ${precio}
+                    Price: ${price}
                     </Typography>
         
 
                     {/* Stock */}
                     <Typography variant="subtitle1" fontWeight="bold">
                     Avaliability: <Chip 
-                    label={stock ? "In Stock" : "Out of Stock"} 
-                    color={stock ? "success" : "error"} 
+                    label={availability ? "In Stock" : "Out of Stock"} 
+                    color={availability ? "success" : "error"} 
                     sx={{ fontWeight: "bold" }} />
                     </Typography>
                     
