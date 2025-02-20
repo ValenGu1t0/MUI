@@ -1,14 +1,11 @@
 
-import { Box, TextField, Select, MenuItem, InputAdornment, IconButton, Fab, Typography } from "@mui/material";
-import { Search, Add } from "@mui/icons-material";
-
+import { Box, TextField, Select, MenuItem, InputAdornment, IconButton, Typography } from "@mui/material";
+import { Search } from "@mui/icons-material";
 import { useState } from "react";
+import ModalCreate from "../ModalCreate/ModalCreate";
 
 
 const SearchBar = () => {
-
-    // ??? aca va la logica
-
 
 
     const [availability, setAvailability] = useState("");
@@ -16,6 +13,8 @@ const SearchBar = () => {
     const [maxPrice, setMaxPrice] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
 
+    // Estado inicial del boton CREAR
+    const [open, setOpen] = useState(false);
 
 
     return (
@@ -59,7 +58,7 @@ const SearchBar = () => {
                     sx={{ maxWidth: 80, backgroundColor: "white", height: 30 }}
                     inputProps={{ style: { height: 20, padding: "5px" } }}
                 />
-                <Typography sx={{ mx: 0.5, fontSize: 16, fontWeight: "900" }}>-</Typography>
+                <Typography sx={{ mx: 0.5, fontSize: 16, fontWeight: "700" }}>-</Typography>
                 <TextField
                     type="number"
                     placeholder="Max"
@@ -91,10 +90,9 @@ const SearchBar = () => {
 
             </Box>
 
-
-            <Fab size="small" color="primary" sx={{ backgroundColor: "#9C27B0", height: 30, width: 35 }}>
-            <Add fontSize="small" />
-            </Fab>
+            {/* Llamamos al Modal de CREATE */}
+            <ModalCreate open={open} handleClose={() => setOpen(false)} />
+            
 
         </Box>
     );

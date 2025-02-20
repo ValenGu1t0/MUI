@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 
 import { Card, CardContent, CardMedia, Typography, Box, Chip, IconButton } from "@mui/material";
-import { Star, StarBorder, Edit, Delete } from "@mui/icons-material";
+import { Star, StarBorder  } from "@mui/icons-material";
+import ModalUpdate from "../ModalUpdate/ModalUpdate";
+import ModalDelete from "../ModalDelete/ModalDelete";
 
 
 const FoodCard = ({ name, description, price, imagen, availability, rating }) => {
@@ -17,26 +19,35 @@ const FoodCard = ({ name, description, price, imagen, availability, rating }) =>
             {/* Contenido de la Card*/}
             <CardContent sx={{ flex: 1, ml: 2 }}>
 
+
                 {/* Título e Iconos */}
                 <Box display="flex" justifyContent="space-between" alignItems="center">
                     <Typography variant="h6" fontWeight="bold">{name}</Typography>
+
                     <Box>
-                    <IconButton size="small"><Edit fontSize="small" /></IconButton>
-                    <IconButton size="small"><Delete fontSize="small" /></IconButton>
+                        {/* Llamamos al Modal de UPDATE */}
+                        <IconButton size="small">
+                            <ModalUpdate />
+                        </IconButton> 
+
+                        {/* Llamamos al Modal de DELETE */}
+                        <IconButton size="small">
+                            <ModalDelete />        
+                        </IconButton>
                     </Box>
                 </Box>
         
+
                 {/* Descripción */}
                 <Typography variant="body2" color="textSecondary">{description}</Typography>
         
+
                 {/* Sección de Precio, Stock y Rating */}
                 <Box display="flex" justifyContent="space-between" alignItems="center" mt={5}>
 
 
                     {/* Precio */}
-                    <Typography variant="subtitle1" fontWeight="bold">
-                    Price: ${price}
-                    </Typography>
+                    <Typography variant="subtitle1" fontWeight="bold">Price: ${price}</Typography>
         
 
                     {/* Stock */}
