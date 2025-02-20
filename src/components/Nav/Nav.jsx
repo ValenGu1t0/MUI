@@ -5,7 +5,7 @@ function Nav() {
 
     return (
 
-        <nav className="flex flex-row p-4 bg-indigo-600 justify-between items-center shadow-md shadow-gray-300/70">
+        <nav className="flex flex-row p-4 bg-indigo-500 justify-between items-center shadow-md shadow-gray-300/70">
             
             {/* LOGO */}
             <Link to="/">

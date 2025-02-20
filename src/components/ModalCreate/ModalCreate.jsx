@@ -18,7 +18,7 @@ function ModalCreate() {
             <>
             {/* Botón flotante que abre el modal */}
             <Fab size="small" color="primary" sx={{ backgroundColor: "#9C27B0", height: 30, width: 35 }} onClick={handleOpen}>
-            <Add fontSize="small" />
+                <Add fontSize="small" />
             </Fab>
 
 
@@ -50,7 +50,7 @@ function ModalCreate() {
                     </Box>
                     
 
-                    {/* FORM */}
+                    {/* FORM - TENGO QUE CAPTURAR LAS PROPS ACA */}
                     <Box sx={{ display: "flex", gap: 2 }}>
 
                         <Box sx={{ flex: 1, display: "flex", flexDirection: "column", gap: 2 }}>

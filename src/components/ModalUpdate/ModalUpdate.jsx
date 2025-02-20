@@ -18,7 +18,7 @@ function ModalUpdate() {
             <>
             {/* Botón flotante que abre el modal de UPDATE */}
             <IconButton size="small" onClick={handleOpen}>
-            <Edit fontSize="small" />
+                <Edit fontSize="small" />
             </IconButton>
 
 
