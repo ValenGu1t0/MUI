@@ -27,14 +27,14 @@ const FoodCard = ({ name, description, price, imagen, availability, rating, id, 
                     <Typography variant="h6" fontWeight="bold">{name}</Typography>
 
                     <Box>
-                        {/* Llamamos al Modal de UPDATE - Con los datos del item actual */}
+                        {/* Llamamos al Modal de UPDATE - Actualiza el elemento del id actual */}
                         <IconButton size="small">
                             <ModalUpdate producto={producto} handleUpdate={handleUpdate} />
                         </IconButton> 
 
-                        {/* Llamamos al Modal de DELETE */}
+                        {/* Llamamos al Modal de DELETE - Elimina el elemento del id actual */}
                         <IconButton size="small">
-                            <ModalDelete />        
+                            <ModalDelete producto={producto} handleUpdate={handleUpdate} />        
                         </IconButton>
                     </Box>
                 </Box>

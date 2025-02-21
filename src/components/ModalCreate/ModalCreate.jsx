@@ -9,8 +9,8 @@ function ModalCreate({ handleUpdate }) {
 
         // Estado del Modal
         const [open, setOpen] = useState(false);
-        const handleOpenModal = () => setOpen(true);
-        const handleCloseModal = () => setOpen(false);
+        const handleOpen = () => setOpen(true);
+        const handleClose = () => setOpen(false);
     
         // States del value de cada Textfield (input) - cada atributo de la comida que se quiere listar
         const [name, setName] = useState("");
@@ -40,7 +40,7 @@ function ModalCreate({ handleUpdate }) {
 
                 // Actualizamos y cerramos el Modal
                 handleUpdate();
-                handleCloseModal();
+                handleClose();
             })
             .catch(e => console.error(e));
         }
@@ -48,11 +48,11 @@ function ModalCreate({ handleUpdate }) {
         
         return (
             <>
-            <Fab size="small" color="primary" sx={{ backgroundColor: "#9C27B0", height: 30, width: 35 }} onClick={handleOpenModal}>
+            <Fab size="small" color="primary" sx={{ backgroundColor: "#9C27B0", height: 30, width: 35 }} onClick={handleOpen}>
             <Add fontSize="small" />
             </Fab>
     
-            <Modal open={open} onClose={handleCloseModal} aria-labelledby="create-product-title">
+            <Modal open={open} onClose={handleClose} aria-labelledby="create-product-title">
 
                 <Box sx={{
                     position: "absolute",
@@ -67,7 +67,7 @@ function ModalCreate({ handleUpdate }) {
                 }}>
                     <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
                     <Typography id="create-product-title" variant="h6" sx={{ color: "#9C27B0" }}>Create Product</Typography>
-                    <IconButton onClick={handleCloseModal} sx={{ color: "#9C27B0" }}><Close /></IconButton>
+                    <IconButton onClick={handleClose} sx={{ color: "#9C27B0" }}><Close /></IconButton>
                     </Box>
     
                     <Box sx={{ display: "flex", gap: 2 }}>

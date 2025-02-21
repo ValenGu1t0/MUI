@@ -3,23 +3,35 @@ import { useState } from "react";
 import { Modal, Box, Typography, Button, IconButton } from "@mui/material";
 import { Delete, Close } from "@mui/icons-material";
 
-function ModalDelete() {
+function ModalDelete({ producto, handleUpdate }) {
 
-    // useState manejado por el <Delete /> 
+    // Estado del ModalDelete
     const [open, setOpen] = useState(false);
-
-
-    // Funciones para Mostrar / Ocultar
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    
+    function handleDelete() {
 
-    // Funcion que elimina el producto id 
-    /* const handleDelete = () => {
-        console.log("Item deleted");
-        handleClose();
-    };  */
-   
+        fetch(`https://67b634b907ba6e59084014c8.mockapi.io/food/${producto.id}`, {
+
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" }, 
+        })
+        .then(res => {
+
+            if (!res.ok) { throw new Error("Error al eliminar el producto");  }            
+            return res.json();
+        })
+        .then(() => {
+
+            handleUpdate();  
+            handleClose();   
+        })
+        .catch(error => console.error("Error en la eliminación:", error));
+    }
+    
+    
 
     return (
         <>
@@ -28,7 +40,7 @@ function ModalDelete() {
             <Delete fontSize="small" />
         </IconButton>
 
-        {/* Modal */}
+        {/* ModalDelete */}
         <Modal open={open} onClose={handleClose}>
             <Box
             sx={{
@@ -44,12 +56,10 @@ function ModalDelete() {
                 textAlign: "center",
             }}
             >
-            
                 {/* Botón de cerrar */}
                 <IconButton onClick={handleClose} sx={{ position: "absolute", top: 8, right: 8, color: "#666" }}>
                     <Close />
                 </IconButton>
-
 
                 {/* Ícono grande */}
                 <IconButton>
@@ -75,7 +85,7 @@ function ModalDelete() {
                 <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
                     <Button variant="outlined" onClick={handleClose} sx={{ borderColor: "#9C27B0", color: "#9C27B0" }}>CANCEL</Button>
 
-                    <Button variant="contained" color="error" /* onClick={handleDelete} */>DELETE</Button>
+                    <Button variant="contained" color="error" onClick={handleDelete}>DELETE</Button>
                 </Box>
 
             </Box>
