@@ -3,25 +3,11 @@ import { useState } from "react";
 import { Modal, Box, Typography, TextField, Button, Select, MenuItem, Fab, IconButton } from "@mui/material";
 import { Add, Close } from "@mui/icons-material";
 
-/* Funcion update del estado general
-const handleUpdate = useCallback(() => {
 
-    fetchData()
-    .then((res) => {  setProductos(res);   })
-
-}, [])
-
-useEffect(() => {
-
-    handleUpdate();
-
-}, [handleUpdate]) 
-*/
-
-// Función que abre el panel de creación y envía el nuevo item al servidor
+// Función que abre el modal de creación y envía el nuevo item al servidor
 function ModalCreate({ handleUpdate }) {
 
-        // State del Modal
+        // Estado del Modal
         const [open, setOpen] = useState(false);
         const handleOpenModal = () => setOpen(true);
         const handleCloseModal = () => setOpen(false);
@@ -60,7 +46,6 @@ function ModalCreate({ handleUpdate }) {
         }
     
         
-
         return (
             <>
             <Fab size="small" color="primary" sx={{ backgroundColor: "#9C27B0", height: 30, width: 35 }} onClick={handleOpenModal}>

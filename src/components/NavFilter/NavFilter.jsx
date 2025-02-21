@@ -136,6 +136,8 @@ function NavFilter({ productos, handleUpdate }) {
                 imagen={prod.imagen}
                 availability={prod.availability}
                 rating={prod.rating}
+                id={prod.id}
+                handleUpdate={handleUpdate}
                 />
                 ))}
             </div> 

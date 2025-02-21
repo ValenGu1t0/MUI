@@ -5,7 +5,10 @@ import ModalUpdate from "../ModalUpdate/ModalUpdate";
 import ModalDelete from "../ModalDelete/ModalDelete";
 
 
-const FoodCard = ({ name, description, price, imagen, availability, rating }) => {
+const FoodCard = ({ name, description, price, imagen, availability, rating, id, handleUpdate }) => {
+
+        // Desestructuramos la información para pasarla a los Modales
+        const producto = { name, description, price, imagen, availability, rating, id };
 
         return (
         <Card sx={{ display: "flex", alignItems: "center", p: 2, borderRadius: 2, boxShadow: 3, width: "60%", margin:"auto"}}>
@@ -24,9 +27,9 @@ const FoodCard = ({ name, description, price, imagen, availability, rating }) =>
                     <Typography variant="h6" fontWeight="bold">{name}</Typography>
 
                     <Box>
-                        {/* Llamamos al Modal de UPDATE */}
+                        {/* Llamamos al Modal de UPDATE - Con los datos del item actual */}
                         <IconButton size="small">
-                            <ModalUpdate />
+                            <ModalUpdate producto={producto} handleUpdate={handleUpdate} />
                         </IconButton> 
 
                         {/* Llamamos al Modal de DELETE */}
