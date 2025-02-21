@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 
 import { Card, CardContent, CardMedia, Typography, Box, Chip, IconButton } from "@mui/material";
 import { Star, StarBorder  } from "@mui/icons-material";
@@ -62,7 +61,7 @@ const FoodCard = ({ name, description, price, imagen, availability, rating }) =>
                     {/* Rating */}
                     <Box display="flex">
                     {[...Array(5)].map((_, index) => (
-                        index < rating ? <Star key={index} color="warning" /> : <StarBorder key={index} color="disabled" />
+                        index < Number(rating) ? <Star key={index} color="warning" /> : <StarBorder key={index} color="disabled" />
                     ))}
                     </Box>
 

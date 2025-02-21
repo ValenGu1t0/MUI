@@ -56,7 +56,7 @@ function ModalUpdate() {
                         <Box sx={{ flex: 1, display: "flex", flexDirection: "column", gap: 2 }}>
                             <TextField label="Name of food" fullWidth />
                             <TextField label="Price" type="number" fullWidth />
-                            <TextField label="Number of stars" type="number" fullWidth />
+                            <TextField label="Number of stars" type="number" fullWidth inputProps={{ min: 0, max: 5 }} />
                         </Box>
 
                         <Box sx={{ flex: 1, display: "flex", flexDirection: "column", gap: 2 }}>
@@ -73,7 +73,7 @@ function ModalUpdate() {
                     
                     {/* SUBMIT */}
                     <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 3 }}>
-                        <Button variant="contained" sx={{ backgroundColor: "#9C27B0", px: 6, py: 1 }}>Create</Button>
+                        <Button variant="contained" sx={{ backgroundColor: "#9C27B0", px: 6, py: 1 }}>Update</Button>
                     </Box>
 
                 </Box>

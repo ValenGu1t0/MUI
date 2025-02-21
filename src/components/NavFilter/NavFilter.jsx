@@ -1,28 +1,24 @@
-/* eslint-disable react/prop-types */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Box, Select, MenuItem, TextField, Typography, InputAdornment, IconButton } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import ModalCreate from "../ModalCreate/ModalCreate";
 import FoodCard from "../FoodCard/FoodCard";
 
-function NavFilter({ productos }) {
-
-    // Estados iniciales
-    const [availability, setAvailability] = useState("");
-
-    // String porque recibimos inputs
-    const [minPrice, setMinPrice] = useState("");
-    const [maxPrice, setMaxPrice] = useState("");
-
-    const [busqueda, setBusqueda] = useState("");
+function NavFilter({ productos, handleUpdate }) {
 
     // Modal Create
     const [open, setOpen] = useState(false);
 
 
+    // Estados iniciales de búsqueda - String porque recibimos inputs
+    const [availability, setAvailability] = useState("");
+    const [minPrice, setMinPrice] = useState("");
+    const [maxPrice, setMaxPrice] = useState("");
+    const [busqueda, setBusqueda] = useState("");
 
-    // Estos estados se actualizan con cada interacción del usuario.
+
+    // Función que filtra en base los parámetros ingresados - estos states se actualizan con cada interacción del usuario.
     const listaProductosFiltrados = productos.filter(prod => {
 
         // Filtrado por disponibilidad - si no cumple con las condiciones ese elemento retorna false y no se renderiza
@@ -42,9 +38,20 @@ function NavFilter({ productos }) {
     });
 
 
+    // Contador de resultados
+    const [resultados, setResultados] = useState(0);
+    // Se ejecuta cada vez que la lista de resultados cambia
+    useEffect(() => {  setResultados(listaProductosFiltrados.length);  }, [listaProductosFiltrados]);   
+
+
 
     return (
         <>
+            <div className="flex flex-row justify-between items-center w-[60%]">
+                <h2 className="text-3xl font-bold">Home Page</h2>
+                <p className="text-xl font-bold">Total Results: {resultados}</p>    {/* n° de resultados filtrados */}
+            </div>
+
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "60%"}}>
 
                 <Box sx={{
@@ -59,7 +66,7 @@ function NavFilter({ productos }) {
                     height: 50,
                 }}>
 
-                    {/* Dropdown de disponibilidad */}
+                    {/* Dropdown de Stock */}
                     <Select
                         sx={{ minWidth: 120, backgroundColor: "white", height: 30 }}
                         value={availability}
@@ -72,7 +79,7 @@ function NavFilter({ productos }) {
                     </Select>
                     
 
-                    {/* Min - Max Price */}
+                    {/* Rango de Precio Minimo y Maximo */}
                     <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                         <TextField
                             type="number"
@@ -94,7 +101,7 @@ function NavFilter({ productos }) {
                     </Box>
                     
 
-                    {/* Campo de búsqueda con icono */}
+                    {/* Input de búsqueda por coincidencia */}
                     <TextField
                         placeholder="Search"
                         value={busqueda}
@@ -113,8 +120,8 @@ function NavFilter({ productos }) {
                     />
                 </Box>
 
-                {/* Llamamos al Modal de CREAR */}
-                <ModalCreate open={open} handleClose={() => setOpen(false)} />
+                {/* Modal de CREAR --->>> pasamos el metodo main como parametro para actualizar el estado */}
+                <ModalCreate open={open} handleClose={() => setOpen(false)} handleUpdate={handleUpdate} />
             </Box>
 
             {/* Renderizado de productos filtrados */}

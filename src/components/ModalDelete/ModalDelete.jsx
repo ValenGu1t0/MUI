@@ -14,12 +14,12 @@ function ModalDelete() {
     const handleClose = () => setOpen(false);
 
 
-    /* Funcion que elimina el producto id 
-    const handleDelete = () => {
+    // Funcion que elimina el producto id 
+    /* const handleDelete = () => {
         console.log("Item deleted");
         handleClose();
-    }; 
-    */
+    };  */
+   
 
     return (
         <>
