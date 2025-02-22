@@ -11,9 +11,8 @@ const FoodCard = ({ name, description, price, imagen, availability, rating, id, 
         const producto = { name, description, price, imagen, availability, rating, id };
 
         return (
-        <Card 
-        sx={{ display: "flex", alignItems: { xs:"stretch", sm:"stretch", md:"center" }, justifyContent:"center",
-        flexDirection: { xs: "column", sm: "column", md: "row" },
+        <Card sx={{ display: "flex", alignItems: { xs:"stretch", sm:"stretch", md:"center" }, 
+        justifyContent:"center", flexDirection: { xs: "column", sm: "column", md: "row" },
         p: 2, borderRadius: 3, boxShadow: 3, margin:"auto", 
         width: "100%", maxWidth: {xs:"70%", sm:"350px", md:"800px" }, 
         }}>
@@ -28,13 +27,7 @@ const FoodCard = ({ name, description, price, imagen, availability, rating, id, 
             <CardContent sx={{ flex: 1, display: "flex", flexDirection: "column", justifyContent:"space-between", gap: "1.5rem" }}>
 
                 {/* Título e Iconos */}
-                <Box sx={{
-                    display:"flex",
-                    justifyContent:"space-between", 
-                    alignItems:"center", 
-                    width:"100%", 
-                    gap: 4,
-                    }} >
+                <Box sx={{ display:"flex", justifyContent:"space-between", alignItems:"center", width:"100%", gap: 4 }} >
                     
                     {/* Titulo Producto */}
                     <Typography sx={{ fontSize: { xs:"1rem", sm:"1.5rem"} }} variant="h6" fontWeight="bold">{name}</Typography>
@@ -56,61 +49,38 @@ const FoodCard = ({ name, description, price, imagen, availability, rating, id, 
 
                 </Box>
         
+
                 {/* Descripción */}
                 <Typography variant="body2" color="textSecondary" textAlign="justify">{description}</Typography>
         
 
                 {/* Sección de Precio, Stock y Rating*/}
-                <Box sx={{ 
-                display: "flex", 
-                flexDirection: { xs: "column", md: "row" }, 
-                justifyContent: "space-between", 
-                alignItems: "center", 
-                gap: "1.5rem",
-                }}>
+                <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, justifyContent: "space-between", alignItems: "center", gap: "1.5rem" }}>
                 
                     {/* Sección de Precio y Stock */}
-                    <Box sx={{ 
-                    display: "flex", 
-                    flexDirection: { xs: "column", sm: "row" }, 
-                    alignItems: "center", 
-                    justifyContent: "space-between", 
-                    width: "100%", 
-                    gap: 1.5 
-                    }}>
+                    <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, alignItems: "center", justifyContent: "space-between", width: "100%", gap: "1.5rem" }}>
                     
                         {/* Precio */}
-                        <Typography variant="subtitle1" fontWeight="bold">
-                        Price: ${price}
-                        </Typography>
+                        <Typography variant="subtitle1" fontWeight="bold">Price: ${price}</Typography>
 
-                        {/* Stock */}
+                        {/* Stock - Availability + Icono Stock*/}
                         <Box sx={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                            <Typography 
-                            sx={{ display: { xs: "none", md: "block" } }} 
-                            variant="subtitle1" 
-                            fontWeight="bold"
-                            >Availability:</Typography>
 
-                            <Chip 
-                            label={availability ? "In Stock" : "Out of Stock"} 
-                            color={availability ? "success" : "error"} 
-                            sx={{ fontWeight: "bold" }} 
-                            />
+                            <Typography sx={{ display: { xs: "none", md: "block" }, fontWeight: "bold"}} variant="subtitle1" >Availability:</Typography>
+
+                            <Chip label={availability ? "In Stock" : "Out of Stock"} color={availability ? "success" : "error"} sx={{ fontWeight: "bold" }} />
+
                         </Box>
 
-                        {/* Rating */}
+                        {/* Rating - Se basa en el int de la propiedad para generar las estrellas rellenas o vacias*/}
                         <Box sx={{ display: "flex", justifyContent: "center" }}>
-                        {[...Array(5)].map((_, index) => 
-                            index < rating ? <Star key={index} color="warning" /> : <StarBorder key={index} color="disabled" />
-                        )}
+                        {[...Array(5)].map((_, index) => index < rating ? <Star key={index} color="warning" /> : <StarBorder key={index} color="disabled" /> )}
                         </Box>
 
                     </Box>
                 
                 </Box>
 
-              
             </CardContent>
 
         </Card>

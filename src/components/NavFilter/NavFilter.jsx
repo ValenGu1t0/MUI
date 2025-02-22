@@ -56,75 +56,41 @@ function NavFilter({ productos, handleUpdate }) {
             </div>
 
             {/* Contenedor de filtros */}
-            <Box sx={{
-                display: "flex",
-                flexDirection: { xs: "column", sm: "row" }, /* Disp. de la Card */
-                alignItems: "center",
-                justifyContent: {xs:"space-between", sm:"center"},
-                width: "100%",
-                maxWidth: {xs:"70%", sm:"90%", md:"85%"}, 
-                gap: { xs: 2, sm: 2 },
-                p: 2,
-            }}
-            >
+            <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, alignItems: "center", justifyContent: {xs:"space-between", sm:"center"},
+            width: "100%", maxWidth: { xs:"70%", sm:"90%", md:"85%" }, gap: "2rem", p: 2 }} >
+
                 {/* NavFilter */}
-                <Box sx={{
-                display: "flex",
-                flexDirection: { xs: "column-reverse", sm: "row" },     /* Disp. de la NavFIilter */
-                justifyContent: { xs: "center", sm: "space-between" },
-                alignItems: { xs:"center" },
-                gap: 2,
-                backgroundColor: "#f5f5f5",
-                padding: 2,
-                borderRadius: 1,
-                width: { xs: "100%", sm: "65%"},
-                maxWidth: "100%"
-                }}
-                >
+                <Box sx={{ display: "flex", flexDirection: { xs: "column-reverse", sm: "row" }, justifyContent: { xs: "center", sm: "space-between" }, alignItems: { xs:"center" },
+                gap: 2, backgroundColor: "#f5f5f5", padding: 2, borderRadius: 1, width: { xs: "100%", sm: "65%"}, maxWidth: "100%" }} >
+
                     {/* Dropdown de Stock */}
-                    <Select
-                    sx={{ minWidth: 120, maxWidth: 130, backgroundColor: "white", height: 30 }}
-                    value={availability}
-                    onChange={(e) => setAvailability(e.target.value)}
-                    displayEmpty
-                    >
-                    <MenuItem value="">Availability</MenuItem>
-                    <MenuItem value="in-stock">In Stock</MenuItem>
-                    <MenuItem value="out-of-stock">Out of Stock</MenuItem>
+                    <Select sx={{ minWidth: 120, maxWidth: 130, backgroundColor: "white", height: 30 }} value={availability}
+                    onChange={(e) => setAvailability(e.target.value)} displayEmpty >
+                        <MenuItem value="">Availability</MenuItem>
+                        <MenuItem value="in-stock">In Stock</MenuItem>
+                        <MenuItem value="out-of-stock">Out of Stock</MenuItem>
                     </Select>
 
 
                     {/* Rango de Precio */}
                     <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                        <TextField
-                            type="number"
-                            placeholder="Min"
-                            value={minPrice}
-                            onChange={(e) => setMinPrice(e.target.value)}
-                            sx={{ maxWidth: 80, backgroundColor: "white", height: 30 }}
-                            inputProps={{ min: 0, style: { height: 20, padding: "5px" } }}
-                        />
+                        <TextField sx={{ maxWidth: 80, backgroundColor: "white", height: 30 }} type="number" placeholder="Min" value={minPrice}
+                        onChange={(e) => setMinPrice(e.target.value)}  
+                        inputProps={{ min: 0, style: { height: 20, padding: "5px" } }}/>
+                        
                         <Typography sx={{ mx: 0.5, fontSize: 16, fontWeight: "700" }}>-</Typography>
-                        <TextField
-                            type="number"
-                            placeholder="Max"
-                            value={maxPrice}
-                            onChange={(e) => setMaxPrice(e.target.value)}
-                            sx={{ maxWidth: 80, backgroundColor: "white", height: 30 }}
-                            inputProps={{ min: 0, style: { height: 20, padding: "5px" } }}
-                        />
+
+                        <TextField sx={{ maxWidth: 80, backgroundColor: "white", height: 30 }} type="number" placeholder="Max" value={maxPrice}
+                        onChange={(e) => setMaxPrice(e.target.value)} 
+                        inputProps={{ min: 0, style: { height: 20, padding: "5px" } }} />
                     </Box>
 
 
                     {/* Input de búsqueda */}
-                    <TextField
-                    placeholder="Search"
-                    value={busqueda}
+                    <TextField sx={{ backgroundColor: "white", width: { xs: "100%", sm: "30%" }, maxWidth: "70%", height: 30 }} 
+                    placeholder="Search" value={busqueda}
                     onChange={(e) => setBusqueda(e.target.value)}
-                    sx={{ backgroundColor: "white", width: { xs: "100%", sm: "30%" }, maxWidth: "70%", height: 30 }}
-                    InputProps={{
-                        sx: { height: 30 },
-                        endAdornment: (
+                    InputProps={{ x: { height: 30 }, endAdornment: (
                         <InputAdornment position="end">
                             <IconButton size="small">
                             <Search />
