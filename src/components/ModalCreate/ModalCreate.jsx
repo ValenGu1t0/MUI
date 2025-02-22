@@ -7,7 +7,7 @@ import { Add, Close } from "@mui/icons-material";
 // Función que abre el modal de creación y envía el nuevo item al servidor
 function ModalCreate({ handleUpdate }) {
 
-        // Estado del Modal
+        // Estado del ModalCreate
         const [open, setOpen] = useState(false);
         const handleOpen = () => setOpen(true);
         const handleClose = () => setOpen(false);
@@ -54,23 +54,14 @@ function ModalCreate({ handleUpdate }) {
     
             <Modal open={open} onClose={handleClose} aria-labelledby="create-product-title">
 
-                <Box sx={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    width: "55%",
-                    bgcolor: "white",
-                    boxShadow: 24,
-                    p: 4,
-                    borderRadius: 1,
-                }}>
+                <Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: { xs:"90%", sm:"55%" }, bgcolor: "white", boxShadow: 24, p: 4, borderRadius: 1 }}>
+                    
                     <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
-                    <Typography id="create-product-title" variant="h6" sx={{ color: "#9C27B0" }}>Create Product</Typography>
-                    <IconButton onClick={handleClose} sx={{ color: "#9C27B0" }}><Close /></IconButton>
+                        <Typography id="create-product-title" variant="h6" sx={{ color: "#9C27B0" }}>Create Product</Typography>
+                        <IconButton onClick={handleClose} sx={{ color: "#9C27B0" }}><Close /></IconButton>
                     </Box>
     
-                    <Box sx={{ display: "flex", gap: 2 }}>
+                    <Box sx={{ display: "flex", flexDirection: { xs:"column", sm:"column", md:"row" }, gap: 2 }}>
 
                         <Box sx={{ flex: 1, display: "flex", flexDirection: "column", gap: 2 }}>
                             <TextField label="Name of food" fullWidth value={name} onChange={(e) => setName(e.target.value)} />

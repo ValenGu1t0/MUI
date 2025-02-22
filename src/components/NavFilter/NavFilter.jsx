@@ -46,40 +46,55 @@ function NavFilter({ productos, handleUpdate }) {
 
 
     return (
+
         <>
-            <div className="flex flex-row justify-between items-center w-[60%]">
-                <h2 className="text-3xl font-bold">Home Page</h2>
+            {/* Home Page */}
+            <div className="flex flex-row justify-between items-center w-full max-w-[60%]
+            celu-s:flex-col celu:flex-col sm:max-w-[70%] md:max-w-[70%] ">
+                <h2 className="text-3xl font-bold text-indigo-950">Home Page</h2>
                 <p className="text-xl font-bold">Total Results: {resultados}</p>    {/* n° de resultados filtrados */}
             </div>
 
-            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "60%"}}>
-
+            {/* Contenedor de filtros */}
+            <Box sx={{
+                display: "flex",
+                flexDirection: { xs: "column", sm: "row" }, /* Disp. de la Card */
+                alignItems: "center",
+                justifyContent: {xs:"space-between", sm:"center"},
+                width: "100%",
+                maxWidth: {xs:"70%", sm:"90%", md:"85%"}, 
+                gap: { xs: 2, sm: 2 },
+                p: 2,
+            }}
+            >
+                {/* NavFilter */}
                 <Box sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    gap: 8,
-                    backgroundColor: "#f5f5f5",
-                    padding: 2,
-                    borderRadius: 2,
-                    width: "94%",
-                    height: 50,
-                }}>
-
+                display: "flex",
+                flexDirection: { xs: "column-reverse", sm: "row" },     /* Disp. de la NavFIilter */
+                justifyContent: { xs: "center", sm: "space-between" },
+                alignItems: { xs:"center" },
+                gap: 2,
+                backgroundColor: "#f5f5f5",
+                padding: 2,
+                borderRadius: 1,
+                width: { xs: "100%", sm: "65%"},
+                maxWidth: "100%"
+                }}
+                >
                     {/* Dropdown de Stock */}
                     <Select
-                        sx={{ minWidth: 120, backgroundColor: "white", height: 30 }}
-                        value={availability}
-                        onChange={(e) => setAvailability(e.target.value)}
-                        displayEmpty
+                    sx={{ minWidth: 120, maxWidth: 130, backgroundColor: "white", height: 30 }}
+                    value={availability}
+                    onChange={(e) => setAvailability(e.target.value)}
+                    displayEmpty
                     >
-                        <MenuItem value="">Availability</MenuItem>
-                        <MenuItem value="in-stock">In Stock</MenuItem>
-                        <MenuItem value="out-of-stock">Out of Stock</MenuItem>
+                    <MenuItem value="">Availability</MenuItem>
+                    <MenuItem value="in-stock">In Stock</MenuItem>
+                    <MenuItem value="out-of-stock">Out of Stock</MenuItem>
                     </Select>
-                    
 
-                    {/* Rango de Precio Minimo y Maximo */}
+
+                    {/* Rango de Precio */}
                     <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                         <TextField
                             type="number"
@@ -87,7 +102,7 @@ function NavFilter({ productos, handleUpdate }) {
                             value={minPrice}
                             onChange={(e) => setMinPrice(e.target.value)}
                             sx={{ maxWidth: 80, backgroundColor: "white", height: 30 }}
-                            inputProps={{ style: { height: 20, padding: "5px" } }}
+                            inputProps={{ min: 0, style: { height: 20, padding: "5px" } }}
                         />
                         <Typography sx={{ mx: 0.5, fontSize: 16, fontWeight: "700" }}>-</Typography>
                         <TextField
@@ -96,33 +111,35 @@ function NavFilter({ productos, handleUpdate }) {
                             value={maxPrice}
                             onChange={(e) => setMaxPrice(e.target.value)}
                             sx={{ maxWidth: 80, backgroundColor: "white", height: 30 }}
-                            inputProps={{ style: { height: 20, padding: "5px" } }}
+                            inputProps={{ min: 0, style: { height: 20, padding: "5px" } }}
                         />
                     </Box>
-                    
 
-                    {/* Input de búsqueda por coincidencia */}
+
+                    {/* Input de búsqueda */}
                     <TextField
-                        placeholder="Search"
-                        value={busqueda}
-                        onChange={(e) => setBusqueda(e.target.value)}
-                        sx={{ backgroundColor: "white", width: "30%", height: 30 }}
-                        InputProps={{
-                            sx: { height: 30 },
-                            endAdornment: (
-                                <InputAdornment position="end">
-                                    <IconButton size="small">
-                                        <Search />
-                                    </IconButton>
-                                </InputAdornment>
-                            ),
-                        }}
-                    />
-                </Box>
+                    placeholder="Search"
+                    value={busqueda}
+                    onChange={(e) => setBusqueda(e.target.value)}
+                    sx={{ backgroundColor: "white", width: { xs: "100%", sm: "30%" }, maxWidth: "70%", height: 30 }}
+                    InputProps={{
+                        sx: { height: 30 },
+                        endAdornment: (
+                        <InputAdornment position="end">
+                            <IconButton size="small">
+                            <Search />
+                            </IconButton>
+                        </InputAdornment>
+                        ),
+                    }}
+                />
 
-                {/* Modal de CREAR --->>> pasamos el metodo main como parametro para actualizar el estado */}
-                <ModalCreate open={open} handleClose={() => setOpen(false)} handleUpdate={handleUpdate} />
+
+            {/* Modal de CREAR */}
             </Box>
+            <ModalCreate open={open} handleClose={() => setOpen(false)} handleUpdate={handleUpdate} />
+            </Box>
+
 
             {/* Renderizado de productos filtrados */}
             <div className="flex flex-col gap-8 w-full">

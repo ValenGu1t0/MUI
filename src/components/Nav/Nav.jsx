@@ -19,7 +19,7 @@ function Nav() {
             <ul className="flex flex-row gap-6">
                 
                 <Link className="font-semibold" to="/">
-                <li className="flex items-center gap-2 transition duration-200 text-indigo-950 hover:scale-105 hover:text-slate-100">
+                <li className="flex items-center gap-2 transition duration-200 text-indigo-950 hover:scale-105 hover:text-slate-100 celu-s:hidden celu:hidden">
                 <i className="fa-solid fa-house"></i>Home
                 </li>
                 </Link>
@@ -31,7 +31,7 @@ function Nav() {
                 </Link>
 
                 <Link className="font-semibold" to="https://github.com/ValenGu1t0" target="_blank">
-                <li className="flex items-center gap-2 transition duration-200 text-indigo-950 hover:scale-105 hover:text-slate-100">
+                <li className="flex items-center gap-2 transition duration-200 text-indigo-950 hover:scale-105 hover:text-slate-100 celu-s:hidden">
                 <i className="fa-brands fa-github"></i>GitHub
                 </li>
                 </Link>
