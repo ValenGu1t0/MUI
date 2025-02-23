@@ -12,7 +12,7 @@ const FoodCard = ({ name, description, price, imagen, availability, rating, id, 
 
         return (
         <Card sx={{ display: "flex", alignItems: { xs:"stretch", sm:"stretch", md:"center" }, 
-        justifyContent:"center", flexDirection: { xs: "column", sm: "column", md: "row" },
+        justifyContent:"center", flexDirection: { xs: "column", sm: "column", md: "row" }, gap:{ xs:"0", sm:"0.5rem", md:"1rem"},
         p: 2, borderRadius: 3, boxShadow: 3, margin:"auto", 
         width: "100%", maxWidth: {xs:"70%", sm:"350px", md:"800px" }, 
         }}>

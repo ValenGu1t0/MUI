@@ -57,7 +57,7 @@ function NavFilter({ productos, handleUpdate }) {
 
             {/* Contenedor de filtros */}
             <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, alignItems: "center", justifyContent: {xs:"space-between", sm:"center"},
-            width: "100%", maxWidth: { xs:"70%", sm:"90%", md:"85%" }, gap: "2rem", p: 2 }} >
+            width: "100%", maxWidth: { xs:"75%", sm:"90%", md:"85%" }, gap: "2rem", p: 2 }} >
 
                 {/* NavFilter */}
                 <Box sx={{ display: "flex", flexDirection: { xs: "column-reverse", sm: "row" }, justifyContent: { xs: "center", sm: "space-between" }, alignItems: { xs:"center" },
@@ -90,7 +90,7 @@ function NavFilter({ productos, handleUpdate }) {
                     <TextField sx={{ backgroundColor: "white", width: { xs: "100%", sm: "30%" }, maxWidth: "70%", height: 30 }} 
                     placeholder="Search" value={busqueda}
                     onChange={(e) => setBusqueda(e.target.value)}
-                    InputProps={{ x: { height: 30 }, endAdornment: (
+                    InputProps={{ sx: { height: 30 }, endAdornment: (
                         <InputAdornment position="end">
                             <IconButton size="small">
                             <Search />
@@ -98,7 +98,7 @@ function NavFilter({ productos, handleUpdate }) {
                         </InputAdornment>
                         ),
                     }}
-                />
+                    />
 
 
             {/* Modal de CREAR */}
