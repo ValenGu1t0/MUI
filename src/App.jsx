@@ -13,10 +13,10 @@ function App() {
 
           <Routes>
 
-            {/* Pagina principal, listamos */}
+            {/* Pagina principal, listamos productos */}
             <Route path="/" element={ <MainListaItems /> } />
 
-            {/* About */}
+            {/* Pagina About */}
             <Route path="/about" element={ <About /> } />
 
           </Routes>
@@ -27,47 +27,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-/* 
-/* Componente que lista todos los items de la API 
-import ItemsListContainer from "./components/ItemsListContainer";
-
-/* Componente que permite acceder a X item con su id 
-import ItemDetailContainer from "./components/ItemDetailContainer";
-
-import Navbar from "./components/Navbar";
-import Nosotros from "./components/Nosotros"
-
-
-
-function App() {
-
-    return (
-        <BrowserRouter> {/* Todo debe ser envuelto en BrowserRouter}
-
-          {/* Barra de Navegación - va a estar en cualquier pagina}
-          <Navbar />
-
-          <Routes>
-
-            <Route path="/" element={ <ItemsListContainer/> } />  {/* Osea http://localhost:5173/ }
-
-            {/* REVISAR PQ NO ANDA }
-            <Route path="/item/:id" element={ <ItemDetailContainer/> } />  {/* http://localhost:5173/item }
-          
-            {/* En este path llegamos a la pagina nosotros }
-            <Route path="/nosotros" element={ <Nosotros/>} />
-
-
-          </Routes>
-
-        </BrowserRouter>
-    );
-
-}
-
-export default App;
- */
