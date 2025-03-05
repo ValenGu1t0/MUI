@@ -49,9 +49,9 @@ function NavFilter({ productos, handleUpdate }) {
 
         <>
             {/* Home Page */}
-            <div className="flex flex-row justify-between items-center w-full max-w-[60%] celu-s:flex-col celu:flex-col sm:max-w-[70%] md:max-w-[70%] ">
+            <div className="flex flex-row px-4 justify-between items-center w-full max-w-[60%] celu-s:flex-col celu:flex-col sm:max-w-[70%] md:max-w-[70%] ">
                 <h2 className="text-3xl font-bold text-indigo-950">Home Page</h2>
-                <p className="text-xl font-bold">Total Results: {resultados}</p>
+                <p className="text-xl font-bold text-indigo-950">Total Results: {resultados}</p>
             </div>
 
             {/* Contenedor de filtros */}
