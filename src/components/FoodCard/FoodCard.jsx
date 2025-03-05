@@ -40,7 +40,7 @@ const FoodCard = ({ name, description, price, imagen, availability, rating, id, 
                             <ModalUpdate producto={producto} handleUpdate={handleUpdate} />
                         </IconButton> 
 
-                        {/* Llamamos al Modal de DELETE - Elimina el elemento del id actual */}
+                        {/* Llamamos al Modal de DELETE - Elimina el elemento del id actual - por eso producto en singular */}
                         <IconButton size="small">
                             <ModalDelete producto={producto} handleUpdate={handleUpdate} />        
                         </IconButton>

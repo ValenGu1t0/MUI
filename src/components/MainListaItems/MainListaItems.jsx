@@ -15,6 +15,7 @@ function MainListaItems() {
 
     }, [])
 
+
     useEffect(() => {
 
         handleUpdate();
@@ -24,9 +25,9 @@ function MainListaItems() {
 
     return (
 
-        <div>
-            <ListaItems productos = {productos} handleUpdate={handleUpdate} />   
-        </div>
+        <>
+            <ListaItems productos={productos} handleUpdate={handleUpdate} />   
+        </>
     )
 
 }
